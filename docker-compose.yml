@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: app
+    command: npm run dev
+    volumes:
+      - .:/usr/src/app/:cached
+      - ./node_modules:/usr/src/app/node_modules
+    ports:
+      - "9000:9000"
+    depends_on:
+      - redis
+  redis:
+    image: redis:6.0.8-alpine

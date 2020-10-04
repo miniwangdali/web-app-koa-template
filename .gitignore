@@ -1,0 +1,5 @@
+node_modules
+dist
+.vscode
+.temp
+/src/server/config/local.env.js
